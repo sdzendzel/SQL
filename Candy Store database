@@ -1,0 +1,26 @@
+CREATE TABLE candy_store (id integer primary key, name text, price integer, quantity integer, chocolate text);
+INSERT INTO candy_store VALUES 
+(1, "hershey", 1, 20, "yes"),
+(2, "twizzlers", 5, 10, "no"),
+(3, "Choc. almonds", 11, 5, "yes"),
+(4, "Choc. pretzels", 10, 5, "yes"),
+(5, "gummy fish", 1, 50, "no"),
+(6, "airheads", 1, 50, "no"),
+(7, "cow tails", 1, 50, "no"),
+(8, "hershey kiss", 2, 20, "yes"),
+(9, "dove truffles", 2, 20, "yes"),
+(10, "licorice", 3, 20, "no"),
+(11, "smarties", 1, 50, "no"),
+(12, "life savers", 1, 50, "no"),
+(13, "mentos", 1, 50, "no"),
+(14, "rice krispie", 2, 20, "no"),
+(15, "nutella", 3, 20, "yes");
+
+--display database ordered by price ascending
+SELECT * FROM candy_store 
+ORDER BY price asc;
+
+--display database ordered by quantity descending
+SELECT * FROM candy_store
+ORDER BY quantity desc;
+
