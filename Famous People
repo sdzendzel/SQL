@@ -1,0 +1,30 @@
+CREATE TABLE famous_people (id INTEGER PRIMARY KEY, name TEXT, birthyear INTEGER, occupation INTEGER);
+INSERT INTO famous_people VALUES (1, "Will Smith", 1968, 1);
+INSERT INTO famous_people VALUES (2, "Ariana Grande", 1993, 3);
+INSERT INTO famous_people VALUES (3, "Morgan Freeman", 1937, 1);
+INSERT INTO famous_people VALUES (4, "Angelina Jole", 1975, 2);
+INSERT INTO famous_people VALUES (5, "Ed Sheeran", 1991, 3);
+INSERT INTO famous_people VALUES (6, "Jennifer Aniston", 1969, 2);
+INSERT INTO famous_people VALUES (7, "Brad Pitt", 1963, 1);
+INSERT INTO famous_people VALUES (8, "Beyonce", 1981, 3);
+INSERT INTO famous_people VALUES (9, "Sandra Bullock", 1964, 2);
+INSERT INTO famous_people VALUES (10, "Jim Carrey", 1962, 1);
+INSERT INTO famous_people VALUES (11, "Tom Cruise", 1962, 1);
+INSERT INTO famous_people VALUES (12, "Drew Barrymore", 1975, 2);
+INSERT INTO famous_people VALUES (13, "Taylor Swift", 1989, 3);
+INSERT INTO famous_people VALUES (14, "Jennifer Garner", 1972, 2);
+INSERT INTO famous_people VALUES (15, "Lady Gaga", 1986, 3);
+
+SELECT * FROM famous_people;
+
+CREATE TABLE occupation (id INTEGER PRIMARY KEY, occupation_id INTEGER, occupation TEXT);
+INSERT INTO occupation VALUES (1, 1, "actor");
+INSERT INTO occupation VALUES (2, 2, "actress");
+INSERT INTO occupation VALUES (3, 3, "singer");
+
+SELECT * FROM occupation;
+
+SELECT famous_people.name, occupation.occupation FROM occupation
+JOIN famous_people
+ON famous_people.occupation = occupation.occupation_id;
+
