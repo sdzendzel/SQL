@@ -47,3 +47,30 @@ JOIN chinook.customers c
 ON e.EmployeeID = c.SupportRepId
 JOIN chinook.invoices i
 ON c.CustomerId = i.CustomerId;
+
+--How many Invoices were there in 2009?
+SELECT COUNT(invoiceid)
+FROM chinook.invoices
+WHERE InvoiceDate BETWEEN '2009-01-01' AND '2009-12-31';
+
+--What are the total sales for 2009?
+SELECT SUM(Total)
+FROM chinook.invoices
+WHERE InvoiceDate BETWEEN '2009-01-01' AND '2009-12-31';
+
+--Write a query that includes the purchased track name with each invoice line ID.
+SELECT t.Name, i.InvoiceLineID
+FROM chinook.invoice_items i
+JOIN chinook.tracks t
+ON i.TrackId = t.TrackID;
+
+--Write a query that includes the purchased track name AND artist name with each invoice line ID.
+SELECT t.Name AS Track, i.InvoiceLineID, ar.Name AS Artist
+FROM chinook.invoice_items i
+LEFT JOIN chinook.tracks t
+ON i.TrackId = t.TrackID
+INNER JOIN chinook.albums a
+ON a.AlbumId = t.AlbumId
+LEFT JOIN chinook.artists ar
+ON ar.ArtistID = a.ArtistId;
+
