@@ -103,3 +103,23 @@ ON cus.SupportRepId = emp.EmployeeId
 WHERE inv.InvoiceDate LIKE '2009%'
 GROUP BY emp.LastName
 ORDER BY SUM(inv.Total) DESC LIMIT 1;
+
+--Make a list that includes the artist, album and genre in alphabetical order by artist name
+SELECT art.Name AS 'Artist Name', alb.Title AS 'Album Name', gen.Name AS 'Genre'
+FROM chinook.artists art
+JOIN chinook.albums alb
+ON art.ArtistId = alb.ArtistId
+JOIN chinook.tracks tr
+ON tr.AlbumId = alb.AlbumId
+JOIN chinook.genres gen
+ON gen.GenreId = tr.GenreId
+ORDER BY 'Artist Name';
+
+--How many items did each customer purchase?
+SELECT cust.LastName AS 'Customer Last Name', SUM(init.Quantity) AS 'Total Quantity'
+FROM chinook.customers cust
+JOIN chinook.invoices inv
+ON inv.CustomerId = cust.CustomerId
+JOIN chinook.invoice_items init
+ON init.InvoiceId = inv.InvoiceId
+GROUP BY cust.LastName;
